@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
-    var timer: Timer!
+    @IBOutlet weak var label2: UILabel!
     
+    
+    var timer: Timer!
     var count = 0
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
        
         self.timeLabel.text = ""
+        self.label2.text = ""
         
         //Changing Background Color
       //  timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateBackgroundColor), userInfo: nibName, repeats: true)
@@ -46,8 +49,9 @@ class ViewController: UIViewController {
         self.timeLabel.text = "\(count)"
         
         //you can stop the updating label in condition like if count == 20 then stop the updating label
-        if count == 30 {
+        if count == 10 {
             timer.invalidate()
+            self.label2.text = "Timer Stoped After 10 Seconds"
         }
     }
     
@@ -59,14 +63,3 @@ class ViewController: UIViewController {
 }
 
 
-extension UIColor {
-    
-    static func random() -> UIColor {
-        
-        let redValue: CGFloat = .random(in: 0...1)
-        let greenValue: CGFloat = .random(in: 0...1)
-        let blueValue: CGFloat = .random(in: 0...1)
-        
-        return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
-    }
-}
